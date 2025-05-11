@@ -5,13 +5,14 @@ export function csvParse(csvString: string) {
     var relevantRows: string[][] = [];
     for(let i = 0; i < parsedCsv.data.length; i++){
         var isRelevant = true;
-        var row: string[] = parsedCsv[i];
+        var row: string[] = parsedCsv.data[i];
         var relevantCols: string[] = [];
         for(let k = 0; k < 3; k++){
             if (row[k] == null){
                 isRelevant = false;
+            } else {
+                relevantCols.push(row[k]);
             }
-            relevantCols.push(row[k]);
         }
         if (isRelevant == true){
             relevantRows.push(relevantCols)
