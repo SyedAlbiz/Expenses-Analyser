@@ -3,12 +3,12 @@ import Papa from 'papaparse';
 export function csvParse(csvString: string) {
     var parsedCsv = Papa.parse(csvString);
     var relevantRows: string[][] = [];
-    for(let i = 0; i < parsedCsv.length; i++){
+    for(let i = 0; i < parsedCsv.data.length; i++){
         var isRelevant = true;
         var row: string[] = parsedCsv[i];
         var relevantCols: string[] = [];
-        for(let k = 0; k <= 3; k++){
-            if (row[k] != null){
+        for(let k = 0; k < 3; k++){
+            if (row[k] == null){
                 isRelevant = false;
             }
             relevantCols.push(row[k]);
